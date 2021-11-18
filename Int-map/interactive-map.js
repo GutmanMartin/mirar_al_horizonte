@@ -32,7 +32,7 @@ sel = 0
 
 
 function setupInteractiveMap() {
-    intMp.map = intMp.loadImage('../int-map/map.jpg')
+    intMp.map = intMp.loadImage('../map.jpg')
     setupPlaces()
 }
 
