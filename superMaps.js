@@ -23,11 +23,11 @@ const sketch = (p) => {
 
 
     function loadThings() {
-        p.imgs[0] = p.loadImage("superMap/map0.jpg")
-        p.imgs[1] = p.loadImage("superMap/map1.jpg")
-        p.imgs[2] = p.loadImage("superMap/map2.jpg")
-        p.imgs[3] = p.loadImage("superMap/map3.jpg")
-        p.imgs[4] = p.loadImage("superMap/map4.jpg")
+        p.imgs[0] = p.loadImage("../superMap/map0.jpg")
+        p.imgs[1] = p.loadImage("../superMap/map1.jpg")
+        p.imgs[2] = p.loadImage("../superMap/map2.jpg")
+        p.imgs[3] = p.loadImage("../superMap/map3.jpg")
+        p.imgs[4] = p.loadImage("../superMap/map4.jpg")
     }
     
 
@@ -50,4 +50,4 @@ const sketch = (p) => {
 
 }
 
-let superMap = new p5(sketch, "holder")
+let superMap = new p5(sketch, "superimposing-maps-holder")

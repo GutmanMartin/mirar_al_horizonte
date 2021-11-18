@@ -1,6 +1,9 @@
 intMp.x = 0
 intMp.y = 0
 
+let x = 0
+let y = 0
+
 intMp.coord = [
     [-34.6523875, -58.5890816],
     [-34.622818, -58.406025],
@@ -29,43 +32,35 @@ sel = 0
 
 
 function setupInteractiveMap() {
-    let sortedX = intMp.coord.map(x => x[0]).sort()
-    let sortedY = intMp.coord.map(y => y[1]).sort()
-    intMp.map = intMp.loadImage('./int-map/map.jpg')
-
-    intMp.coord = intMp.bCoord.map(x => [
-        -(x[0] - sortedX[0]),
-        -(x[1] - sortedY[0])
-    ])
-    
-    intMp.K = (intMp.height - 100 / (sortedY[0] - sortedY[18]))
-    // max X = 0.718125999999998
-    // max Y = 0.2808329999999941
-    const maxValue = sortedY[0] - sortedY[18]
-
-    intMp.coord = intMp.coord.map(x => [
-        (x[0] * 4000) + 10, (x[1] * 4000) + 10
-    ])
-    
+    intMp.map = intMp.loadImage('../int-map/map.jpg')
+    setupPlaces()
 }
 
 function interactiveMap() {
     intMp.push();
-    moveTheCanvas();
-    sel = selectClosestC()
-    intMp.image(intMp.map, 0, 0)
-    placeTheDots()
-    
-    intMp.pop();
-}
-
-function moveTheCanvas() {
     if(
         intMp.mouseX < intMp.width &&
         intMp.mouseX > 0 &&
         intMp.mouseY > 0 &&
         intMp.mouseY < intMp.height
     ) {
+        moveTheCanvas();
+    }
+    intMp.translate(intMp.x, intMp.y)
+
+
+
+    sel = selectClosestC()
+    intMp.image(intMp.map, 0, 0)
+    placeTheDots()
+    
+    y = intMp.mouseY - intMp.y
+    x = intMp.mouseX - intMp.x
+    intMp.pop();
+}
+
+function moveTheCanvas() {
+    /**/
         if(intMp.mouseX< 100 || intMp.mouseY < 100 || intMp.mouseX > intMp.width - 100 || intMp.mouseY > intMp.height - 100) {
             
             if(intMp.mouseX > intMp.width - 100 && intMp.x > -intMp.width) {
@@ -81,30 +76,35 @@ function moveTheCanvas() {
             }
             
         }
-    }
-
-    intMp.translate(intMp.x, intMp.y)
-
 }
 
+    intMp.mousePressed = () => {
+        console.log("[" +intMp.int(x) + " , " + intMp.int(y) + "]")
+    }
+
 function placeTheDots() {
-    intMp.fill(0)
-    for(let i = 0; i < intMp.coord.length; i++) {
+    
+
+    for(let i = 0; i < places.length; i++) {
         if (i == sel) {
             intMp.fill(157, 184, 7)
-            intMp.text(i, intMp.coord[i][0], intMp.coord[i][1]);
+            intMp.stroke(157, 184, 7)
+            //intMp.text(i, places[i].coords[0], places[i].coords[1]);
+            intMp.circle(places[i].coords[0], places[i].coords[1],5)
             intMp.fill(0)
-
         } else {
-            intMp.text(i, intMp.coord[i][0], intMp.coord[i][1]);
+            intMp.fill(0)
+            intMp.stroke(0)
+            intMp.circle(places[i].coords[0], places[i].coords[1],5)
         }
     }
+    
 }
 
 
 function selectClosestC() {
-    let dists = intMp.coord.map(x => 
-        intMp.dist(intMp.mouseX - intMp.x, intMp.mouseY - intMp.y, x[0], x[1])    
+    let dists = places.map(x => 
+        intMp.dist(intMp.mouseX - intMp.x, intMp.mouseY - intMp.y, x.coords[0], x.coords[1])    
     )
     let sel = 0
     let selDist = 5000

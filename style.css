@@ -3,13 +3,12 @@ html, body {
     padding: 0;
     color: white;
     font-family: Helvetica, Arial, sans-serif;
-    justify-content: center;
-    background-color: navy;
+    justify-content: center; background-color: black;
     
 }
 
 body {
-    background: linear-gradient(to bottom, transparent, black 95rem),
+    background: linear-gradient(to bottom, transparent, transparent 40rem, black 80rem),
       url("back.jpg");
     border:white, 10px, solid;
     padding-top: 50rem;
@@ -23,7 +22,7 @@ main {
     
     display:block;
     margin-left: 5%;
-    margin-right: auto;
+    margin-right: 0;
     padding-left: 2rem;
     padding-top: 2rem;
     
@@ -66,12 +65,17 @@ img.drawing {
     margin-top: 2rem;
     display: flex;
     margin-left: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
+
+/*
+#defaultVanvas0 {
+
+}*/
 
 #defaultCanvas1 {
     position:relative;
-    right: 150px;
+    right: 100px;
     bottom: 30px;
 }
 
@@ -85,7 +89,8 @@ h1.first-title {
     font-size: 5rem;
     font-weight: 200;
     color: #9aa0af;
-    margin-bottom: 7rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 p {
@@ -100,6 +105,7 @@ p {
     width: 60%;
     margin-left: 30%;
     color: #8fc698;
+    margin-top: 7rem;
 }
 
 .p5Canvas {
@@ -107,15 +113,15 @@ p {
 }
 
 .tab {
-    margin: 5rem;
+    margin: 2.5rem;
 }
 
 img.rio-desde-arriba {
     margin-top: 100rem; 
     margin-bottom: 10rem;
-    width: 130%;
+    width: 110%;
     position:relative;
-    right: 13.6%;
+    right: 7%;
 }
 
 
@@ -136,4 +142,88 @@ img.rio-desde-arriba {
     position: relative;
     bottom: 3.5rem;
     margin-left: 2rem;
+}
+
+
+a.continue {
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+a.primer-a {
+    position:relative;
+    bottom:3rem;
+    left: 35rem;
+    
+    padding: 1rem 3rem 1rem 3rem;
+    background-color: #054242;
+    color: black;
+}
+
+
+/* parte 2 */
+
+body.second {
+    background: linear-gradient(to bottom, transparent, transparent 35rem, black 60rem),
+    url("parte-2/back-city.jpg");
+    padding-top: 50rem;
+}
+
+
+.go-back{
+    position: relative;
+    top: 2rem;
+    left: 1rem;
+    margin-bottom: 60rem;
+}
+
+
+.buenos-aires{
+    width: 90%
+}
+
+p.bs1{
+    margin:5rem 0rem 3rem 0rem ;
+    color:#65826d;
+}
+
+p.bs2 {
+    margin:2rem 0rem 3rem 0rem ;
+    width: 75%;
+    margin-left: 15%;
+    color:#a8b3ab;
+}
+
+p.bs3{
+    width: 50%;
+    margin-left: 40%;
+    color:
+    #363b37;
+    
+}
+
+p.geller{
+    margin-bottom: 5rem;
+    margin-top: 7rem;
+    width: 60%;
+    color:#d49fae;
+}
+
+q.geller {
+        font-style: italic;
+}
+#superimposing-maps-holder {
+    margin-bottom: 20rem;
+    margin-left: 10%;
+}
+
+.video-to-right {
+    margin-left: 17%;
+    margin-bottom: 10rem;
+}
+
+.third {
+    background: linear-gradient(to bottom, transparent, transparent 30rem,black 50rem),
+    url("parte-3/back.jpg");
+    padding-top: 50rem;
 }
