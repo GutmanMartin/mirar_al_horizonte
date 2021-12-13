@@ -151,13 +151,18 @@ a.continue {
 }
 
 a.primer-a {
-    position:relative;
-    bottom:3rem;
-    left: 35rem;
-    
     padding: 1rem 3rem 1rem 3rem;
     background-color: #054242;
     color: black;
+    margin-right:3rem;
+    font-size: 1.5rem;
+}
+
+div.navigators {
+    display:flex;
+    position:relative;
+    bottom:3rem;
+    left: 35rem;
 }
 
 
@@ -172,9 +177,9 @@ body.second {
 
 .go-back{
     position: relative;
-    top: 2rem;
+  /*  top: 2rem;*/
     left: 1rem;
-    margin-bottom: 60rem;
+    text-decoration: none;
 }
 
 
@@ -199,7 +204,7 @@ p.bs3{
     margin-left: 40%;
     color:
     #363b37;
-    
+    text-decoration: none;
 }
 
 p.geller{
